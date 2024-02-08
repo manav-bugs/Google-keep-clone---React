@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
-
+import ZoomOutMapRoundedIcon from '@mui/icons-material/ZoomOutMapRounded';
+import ZoomInMapRoundedIcon from '@mui/icons-material/ZoomInMapRounded';
 function CreateNote(props) {
+
+    const [expand, setExpand] = useState(false);
     const [note, setNote] = useState({
         title: '',
         content: '',
@@ -18,27 +21,40 @@ function CreateNote(props) {
         })
     };
 
-    
+
 
     const addEvent = () => {
         props.passNote(note);
-        setNote ({
+        setNote({
             title: '',
             content: '',
         });
     }
-
+    const expandIt = () => {
+        setExpand(true);
+    }
+    const backToNormal = () => {
+        setExpand(false);
+    }
     return (
         <>
             <div className="main_note">
                 <form action="">
-                    <input type="text" name='title' onChange={InputEvent} value={note.title} placeholder='Title' autoComplete='off' />
-                    <textarea cols="" name='content' onChange={InputEvent} value={note.content} rows="" placeholder='Write a Note...'></textarea>
-                    <Button onClick={addEvent}>
-                        <AddIcon className='plus_sign' />
-                    </Button>
+                    {expand ?
+                        <input type="text" name='title' onChange={InputEvent} value={note.title} placeholder='Title' autoComplete='off' /> : null}
+                    <textarea onDoubleClick={backToNormal} onClick={expandIt} cols="" name='content' onChange={InputEvent} value={note.content} rows="" placeholder='Write a Note...' ></textarea>
+                    {
+                        expand ?
+                            <ZoomInMapRoundedIcon className='abc' onClick={backToNormal} /> : <ZoomOutMapRoundedIcon className='abc' onClick={expandIt} />}
+                    {
+                        expand ?
+                            <Button onClick={addEvent}>
+                                < AddIcon className='plus_sign' />
+                            </Button> : null
+                    }
+                    
                 </form>
-            </div>
+            </div >
         </>
     )
 }

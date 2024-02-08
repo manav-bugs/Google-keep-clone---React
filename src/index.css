@@ -5,6 +5,7 @@
 
   }
   .header{
+    position: relative;
     width: 100%;
     line-height: 100px;
     background-color: #f4b400;
@@ -64,7 +65,7 @@
     border-radius: 7px;
     box-shadow: 0 2px 5px #ccc;
     padding: 10px;
-    width: 240px;
+    width: 350px;
     margin: 16px;
     float: left;
   }
@@ -76,6 +77,12 @@
 
   .MuiButton-root:hover{
     background: #f4b400 !important;
+  }
+  .heading{
+    text-align: center;
+    font-size: 45px;
+    margin-top: 35px;
+    margin-bottom: 35px;
   }
 
   .MuiButton-root .plus_sign{
@@ -147,7 +154,56 @@
     width: 100%;
     position: absolute;
     bottom: 0;
+    z-index: -1;
     padding: 10px;
     text-align: center;
     background: #e8e8e8;
+  }
+
+  .abc{
+    color: black;
+    cursor: pointer;
+    /* width:40px;
+    height:50px ;
+    position: absolute;
+    bottom: -10px;
+    left: 403px;
+    cursor: pointer;
+    /* background-color: #fff !important;  */
+    /* box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.3); */
+    /* border-radius: 50% !important;  */
+  }
+
+  @media screen and (max-width: 769px){
+    .MuiButton-root{
+      width:40px;
+      height:50px ;
+      position: absolute;
+      bottom: -28px;
+      left: 200px;
+      cursor: pointer;
+      background-color: #fff !important;
+      box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.3);
+      border-radius: 50% !important;
+    }
+    .main_note{
+      width: 350px;
+      padding: 15px 10px 5px 10px;
+      margin:10px auto ;
+    }
+    .note{
+      background: #fff;
+      border-radius: 7px;
+      box-shadow: 0 2px 5px #ccc;
+      padding: 10px;
+      width: 240px;
+      margin: 16px;
+      /* display: flex;
+      justify-content: center;
+      align-items: center; */
+    }
+    .container{
+      width: 240px;
+      margin: auto;
+    }
   }

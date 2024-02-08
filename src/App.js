@@ -4,35 +4,42 @@ import CreateNote from './CreateNote';
 import Note from './Note';
 import Footer from './Footer';
 import { useState } from 'react';
+import Heading from './Heading';
 
 function App() {
-  const [addItem,setaddItem]=useState([]);
-
-  const addNote =(note)=>{
-    setaddItem((prevData)=>{
-      return [...prevData,note]
+  const [addItem, setaddItem] = useState([]);
+  const addNote = (note) => {
+    
+    setaddItem((prevData) => {
+      return [...prevData, note]
     })
   };
 
-  const onDelete = (id) =>{
+  const onDelete = (id) => {
     setaddItem((olddata) =>
-      olddata.filter((currdata,indx)=>{
-        return indx !==id
+      olddata.filter((currdata, indx) => {
+        return indx !== id
       })
     )
   }
   return (
     <>
       <Header />
-      <CreateNote passNote={addNote}/>
-      {addItem.map((val,index)=>{
-        return <Note 
-        key={index}
-        id={index}
-        title={val.title}
-        content={val.content}
-        deleteItem={onDelete}
-      />
+      <CreateNote passNote={addNote} />
+      {addItem.map((val, index) => {
+        if (val.title == "" && val.content == "") {
+          // alert("please! enter title and note");
+        }
+        else {
+          return <Note
+            key={index}
+            id={index}
+            title={val.title}
+            content={val.content}
+            deleteItem={onDelete}
+          />
+        }
+
       })}
       <Footer />
     </>

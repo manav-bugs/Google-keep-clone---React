@@ -9,6 +9,7 @@ function Note(props) {
 
   return (
     <>
+      <div className="container">
         <div className="note">
             <h1>{props.title}</h1>
             <br />
@@ -17,6 +18,7 @@ function Note(props) {
                 <DeleteOutlineIcon className='deleteIcon' />
             </button>
         </div>
+      </div>
     </>
   )
 }
