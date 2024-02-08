@@ -26,6 +26,8 @@ function App() {
     <>
       <Header />
       <CreateNote passNote={addNote} />
+      <br />
+      <hr />
       {addItem.map((val, index) => {
         if (val.title == "" && val.content == "") {
           // alert("please! enter title and note");
